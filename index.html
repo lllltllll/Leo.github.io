@@ -27,19 +27,19 @@ xhr.onload = function() {
   }
 };
 xhr.send();
-
-<!-- // 第三步：拉取用户信息(需scope为 snsapi_userinfo)
-// 使用access_ -->token和openid发送GET请求，获取用户信息
+<!-- 
+// 第三步：拉取用户信息(需scope为 snsapi_userinfo)
+// 使用access_token和openid发送GET请求，获取用户信息 -->
 function getUserInfo(access_token, openid) {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "https://api.weixin.qq.com/sns/userinfo?access_token=" + access_token + "&openid=" + openid + "&lang=zh_CN");
   xhr.onload = function() {
     if (xhr.status === 200) {
-      // 解析返回的JSON数据
+      <!-- // 解析返回的JSON数据 -->
       let data = JSON.parse(xhr.responseText);
-      // 获取用户昵称
+      <!-- // 获取用户昵称 -->
       let nickname = data.nickname;
-      // 在网页中显示用户昵称
+      <!-- // 在网页中显示用户昵称 -->
       document.getElementById("demo").innerHTML = "你好，" + nickname + "！";
     }
   };
