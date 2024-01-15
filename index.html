@@ -12,7 +12,7 @@ xhr.onload = function() {
     <!-- // 解析返回的JSON数据 -->
     let data = JSON.parse(xhr.responseText);
     <!-- // 获取access_token和openid -->
-    let access_token = data.access_token;
+    let access_token = data.7200;
     let openid = data.openid;
     <!-- // 调用第三步的函数 -->
     getUserInfo(access_token, openid);
