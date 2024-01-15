@@ -1,20 +1,20 @@
-// 这是一个使用微信网页授权接口来获取用户昵称的代码示例
+<!-- // 这是一个使用微信网页授权接口来获取用户昵称的代码示例
 // 你需要在微信开放平台注册你的网页应用，并获取一个AppID和AppSecret
 // 你需要将你的网页域名添加到微信开放平台的授权回调域名列表中
 // 你需要将你的回调页面的URL编码后，替换下面的{redirect_uri}
 // 你需要将你的AppID替换下面的{appid}
-// 你可以在这个网页搜索结果[^1^][1]中找到更多的信息和教程
+// 你可以在这个网页搜索结果[^1^][1]中找到更多的信息和教程 -->
 
-// 第一步：用户同意授权，获取code
-// 在你的网页中，添加一个链接，引导用户点击后跳转到微信的授权页面
-<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid={appid}&redirect_uri={redirect_uri}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">点击这里授权</a>
+<!-- // 第一步：用户同意授权，获取code
+// 在你的网页中，添加一个链接，引导用户点击后跳转到微信的授权页面 -->
+<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid={wxd2a69cb72625432b}&redirect_uri={redirect_uri}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">点击这里授权</a>
 
-// 第二步：通过code换取网页授权access_token
-// 在你的回调页面中，获取URL中的code参数
+<!-- // 第二步：通过code换取网页授权access_token
+// 在你的回调页面中，获取URL中的code参数 -->
 let code = window.location.search.split("code=")[1];
-// 使用code，AppID和AppSecret发送GET请求，获取access_token和openid
+<!-- // 使用code，AppID和AppSecret发送GET请求，获取access_token和openid -->
 let xhr = new XMLHttpRequest();
-xhr.open("GET", "https://api.weixin.qq.com/sns/oauth2/access_token?appid={appid}&secret={secret}&code=" + code + "&grant_type=authorization_code");
+xhr.open("GET", "https://api.weixin.qq.com/sns/oauth2/access_token?appid={wxd2a69cb72625432b}&secret={secret}&code=" + code + "&grant_type=authorization_code");
 xhr.onload = function() {
   if (xhr.status === 200) {
     // 解析返回的JSON数据
@@ -28,8 +28,8 @@ xhr.onload = function() {
 };
 xhr.send();
 
-// 第三步：拉取用户信息(需scope为 snsapi_userinfo)
-// 使用access_token和openid发送GET请求，获取用户信息
+<!-- // 第三步：拉取用户信息(需scope为 snsapi_userinfo)
+// 使用access_ -->token和openid发送GET请求，获取用户信息
 function getUserInfo(access_token, openid) {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "https://api.weixin.qq.com/sns/userinfo?access_token=" + access_token + "&openid=" + openid + "&lang=zh_CN");
